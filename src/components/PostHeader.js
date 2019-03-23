@@ -1,11 +1,21 @@
 import React from "react";
-
-import logo from "../img/avatar1.png";
+import PropTypes from 'prop-types';
 
 const PostHeader = props => (
   <div className="post-header-container">
-    <img className="avatar" src={logo} alt="avatar" />
+    <img className="avatar" src={props.avatar} alt="avatar" />
+
+    <div className="data-container">
+      <strong>{props.author}</strong>
+      <span>{props.time}</span>
+    </div>
   </div>
 );
+
+PostHeader.propTypes = {
+  author: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired
+};
 
 export default PostHeader;
